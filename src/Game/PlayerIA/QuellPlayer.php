@@ -7,7 +7,7 @@ use Hackathon\Game\Result;
 /**
  * Class QuellPlayers
  * @package Hackathon\PlayerIA
- * @author YOUR NAME HERE
+ * @author KHATTABI FILALI Youssef
  */
 class QuellPlayer extends Player
 {
@@ -17,6 +17,7 @@ class QuellPlayer extends Player
 
     public function getChoice()
     {
+
         // -------------------------------------    -----------------------------------------------------
         // How to get my Last Choice           ?    $this->result->getLastChoiceFor($this->mySide) -- if 0 (first round)
         // How to get the opponent Last Choice ?    $this->result->getLastChoiceFor($this->opponentSide) -- if 0 (first round)
@@ -41,6 +42,21 @@ class QuellPlayer extends Player
         // How can i display the result of each round ? $this->prettyDisplay()
         // -------------------------------------    -----------------------------------------------------
 
+        if($this->result->getNbRound() == 0){
+            return parent::rockChoice();
+        }
+
+        if ($this->result->getLastChoiceFor($this->opponentSide)  == "scissors"){
+            return parent::rockChoice();
+        }
+
+        if ($this->result->getLastChoiceFor($this->opponentSide)  == "paper"){
+            return parent::scissorsChoice();
+        }
+
+        if ($this->result->getLastChoiceFor($this->opponentSide)  == "rock"){
+            return parent::paperChoice();
+        }
 
         return parent::rockChoice();
 
