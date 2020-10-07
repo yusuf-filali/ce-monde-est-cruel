@@ -42,12 +42,31 @@ class QuellPlayer extends Player
         // How can i display the result of each round ? $this->prettyDisplay()
         // -------------------------------------    -----------------------------------------------------
 
+        /*$my_array = $this->result->getStatsFor($this->mySide);
+        $his_array = $this->result->getStatsFor($this->opponentSide);
+        $my_score = $my_array['score'];
+        $his_score = $his_array['score'];
+
         if($this->result->getNbRound() == 0){
+            echo $my_score;
+            return parent::rockChoice();
+        }*/
+
+        /*means he would like to defeat me because i have more than him then do same as his last */
+        /*if ($my_score > $his_score && $this->result->getLastChoiceFor($this->opponentSide)  == "scissors"){
+            return parent::scissorsChoice();
+        }
+
+        if ($my_score > $his_score && $this->result->getLastChoiceFor($this->opponentSide)  == "rock"){
             return parent::rockChoice();
         }
 
+        if ($my_score > $his_score && $this->result->getLastChoiceFor($this->opponentSide)  == "paper"){
+            return parent::paperChoice();
+        }*/
+
         if ($this->result->getLastChoiceFor($this->opponentSide)  == "scissors"){
-            return parent::rockChoice();
+            return parent::paperChoice();
         }
 
         if ($this->result->getLastChoiceFor($this->opponentSide)  == "paper"){
@@ -58,7 +77,7 @@ class QuellPlayer extends Player
             return parent::paperChoice();
         }
 
-        return parent::rockChoice();
+        return parent::paperChoice();
 
     }
 };

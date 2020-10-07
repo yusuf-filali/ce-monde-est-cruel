@@ -16,7 +16,7 @@ abstract class Player
     /**
      * Stupid Function -- The only one, you can override !
      */
-    protected function getChoice()
+    public function getChoice()
     {
         return $this->rockChoice();
     }
